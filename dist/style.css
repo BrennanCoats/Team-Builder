@@ -1,0 +1,57 @@
+
+
+#pageHeader {
+    padding: 30
+    px;
+    text-align: center;
+    background: #13293d;
+    color: #fff;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: center;
+    
+    
+  }
+
+#cards{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cardHead{
+  padding: 5px;
+  text-align: center;
+  background: #13293d;
+  color: #fff;
+  width: 100%;
+
+}
+
+.personName{
+
+}
+
+.card {
+
+    padding: 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    text-align: center;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin: 25px;
+    
+    
+  }
+.info {
+    margin: 5px;
+}
+  
+
+  
