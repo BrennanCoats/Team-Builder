@@ -10,7 +10,7 @@ const generateEngineer = ({ manager, managerId, managerEmail, managerOffice, eng
       <h4 class="personName">Name: ${engineer}</h4>
       <span>ID: ${engineerId}</span>
       <span>Email: ${engineerEmail}</span>
-      <span>Office ${engineersGithub}</span>
+      <span>Github ${engineersGithub}</span>
     </div>
 
     </section>

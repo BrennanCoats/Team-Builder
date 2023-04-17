@@ -1,11 +1,19 @@
-var inquirer = require('inquirer');
-const fs = require("node:fs");
-const generateHTML = require("./utils/generateHTML");
-const generateEngineer = require("./utils/generateEngineer");
-const generateIntern = require("./utils/generateIntern");
-const { appendFileSync } = require('node:fs');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const generateHTML = require("./utils/generateHTML")
+const generateEngineer = require("./utils/generateEngineer")
+const generateIntern = require("./utils/generateIntern")
+
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
+const Manager = require("./lib/Manager");
+const { log } = require("console");
+
 
 const { writeFile } = require('fs').promises;
+
+
+const teamInfo = [];
 
 const promptUser = () => {
         inquirer
@@ -32,13 +40,12 @@ const promptUser = () => {
             },
           ])
           .then((answers) => {
-            console.log("Building your team")
-            writeFile('./dist/index.html', generateHTML(answers))
-            .then(() => console.log('Successfully created index.html file'))
-            .catch((err) => console.error(err));
-            promptForMore()
-          });        
-        };
+              writeFile('./dist/index.html', generateHTML(answers))
+              .catch((err) => console.error(err));
+              promptForMore()
+            });  
+          };
+          
 
  
 const promptForMore = () => {
@@ -47,7 +54,7 @@ const promptForMore = () => {
             type: 'list',
             name: 'openingQuestion',
             message: 'What would you like to do?',
-            choices: ["Add a Manager", "Add an engineer", "Add an intern", "Finish building my team"],
+            choices: [ "Add an engineer", "Add an intern", "Finish building my team"],
         }
     ])
     .then((answers) => {
@@ -75,12 +82,10 @@ const promptForMore = () => {
                 message: "Please enter your engineers Github username",
             },
           ])
-          .then((answers) => appendFileSync('./dist/index.html', generateEngineer(answers)))
           .then((answers) => {
-            console.log("Building your team")
-            promptForMore()
-          });
-
+            fs.appendFileSync('./dist/index.html', generateEngineer(answers))
+              promptForMore()
+            });
     } else if (answers.openingQuestion === 'Add an intern') {
         inquirer
           .prompt([
@@ -101,17 +106,16 @@ const promptForMore = () => {
             },
             {
                 type: 'input',
-                name: 'internsGithub',
-                message: "Please enter your interns Github username",
+                name: 'internsSchool',
+                message: "Please enter your interns School Name",
             },
           ])
-          .then((answers) => appendFileSync('./dist/index.html', generateIntern(answers)))
-          .then(() => console.log('Successfully appended index.html file'))
           .then((answers) => {
-            promptForMore()
-          });
+            fs.appendFileSync('./dist/index.html', generateIntern(answers))
+              promptForMore()
+            });
     }else if (answers.openingQuestion === 'Finish building my team') {
-
+      console.log("Your teams page has been created!")
     }  
     })
     

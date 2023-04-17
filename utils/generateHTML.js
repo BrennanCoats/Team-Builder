@@ -1,4 +1,4 @@
-const generateHTML = ({ manager, managerId, managerEmail, managerOffice, engineer, engineerId, engineerEmail, engineersGithub, intern, internId, internEmail, internsGithub }) =>
+const generateHTML = ({ manager, managerId, managerEmail, managerOffice }) =>
   `<!DOCTYPE html>
   <html lang="en">
   <head>

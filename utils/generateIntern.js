@@ -1,4 +1,4 @@
-const generateIntern = ({ manager, managerId, managerEmail, managerOffice, engineer, engineerId, engineerEmail, engineersGithub, intern, internId, internEmail, internsGithub }) =>
+const generateIntern = ({ manager, managerId, managerEmail, managerOffice, engineer, engineerId, engineerEmail, engineersGithub, intern, internId, internEmail, internsSchool }) =>
   `<!DOCTYPE html>
   <html lang="en">
   <body id="body">
@@ -10,7 +10,7 @@ const generateIntern = ({ manager, managerId, managerEmail, managerOffice, engin
       <h4 class="personName">Name: ${intern}</h4>
       <span>ID: ${internId}</span>
       <span>Email: ${internEmail}</span>
-      <span>Office ${internsGithub}</span>
+      <span>School ${internsSchool}</span>
     </div>
 
     </section>
